@@ -9,15 +9,18 @@ public class CubeMaker : MonoBehaviour
 {
     public Vector3 size = Vector3.one;
     private MeshFilter meshFilter;
+    private MeshCreator mc;
 
 	void Start () 
 	{
+        mc = new MeshCreator();
         meshFilter = GetComponent<MeshFilter>();
 	}
 	
 	void Update () 
 	{
-        MeshCreator mc = new MeshCreator(); // one submesh for each face
+        mc.Clear();
+
         Vector3 cubeSize = size * 0.5f;
 
         // top of the cube        

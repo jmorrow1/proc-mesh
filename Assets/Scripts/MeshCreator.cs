@@ -8,6 +8,7 @@ class MeshCreator
     private List<Vector3> normals = new List<Vector3>();
     private List<Vector2> uvs = new List<Vector2>();
     private List<int> triangleIndices = new List<int>();
+    private Mesh mesh;
 
     public MeshCreator()
     {
@@ -16,7 +17,7 @@ class MeshCreator
 
     public Mesh CreateMesh()
     {
-        Mesh mesh = new Mesh();
+        mesh = new Mesh();
         mesh.vertices = verts.ToArray();
         mesh.normals = normals.ToArray();
         mesh.uv = uvs.ToArray();
@@ -55,5 +56,22 @@ class MeshCreator
         triangleIndices.Add(v0Index);
         triangleIndices.Add(v1Index);
         triangleIndices.Add(v2Index);
+    }
+
+    public void Clear()
+    {
+        if (mesh != null)
+        {
+            mesh.Clear();
+        }
+
+        verts.Clear();
+
+        normals.Clear();
+
+        uvs.Clear();
+
+        triangleIndices.Clear();
+
     }
 }
